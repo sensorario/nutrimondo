@@ -8,8 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -24,27 +24,33 @@ public class MainActivity extends Activity {
                     .commit();
         }
 
-        addTextView((FrameLayout) findViewById(R.id.activity_main));
-
+        buildInterface();
     }
 
-    private void addTextView(FrameLayout activityMain) {
-        int width = 420;
-        int height = 40;
+    private void buildInterface() {
+        ArrayAdapter<CharSequence> adapter = getAliments();
 
-        FrameLayout.LayoutParams params;
-        params = new FrameLayout.LayoutParams(
-                width,
-                height
+        InterfaceBuilder interfaceBuilder = getBuilder();
+        interfaceBuilder.addTextView("Orario del pasto:");
+        interfaceBuilder.addTimePicker();
+        interfaceBuilder.addTextView("Alimento:");
+        interfaceBuilder.addSpinner(adapter);
+    }
+
+    private ArrayAdapter<CharSequence> getAliments() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.aliments, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return adapter;
+    }
+
+    private InterfaceBuilder getBuilder() {
+        InterfaceBuilder interfaceBuilder;
+        interfaceBuilder = new InterfaceBuilder(
+                this,
+                (FrameLayout) findViewById(R.id.activity_main)
         );
-        params.leftMargin = 20;
-        params.topMargin = 200;
-
-        TextView textView = new TextView(this);
-        textView.setText("1 2 3 4 5 6 7 8 9 0 p o i u y t r e w q a s d f g h j k l m n b v c x z");
-        textView.setLayoutParams(params);
-
-        activityMain.addView(textView);
+        return interfaceBuilder;
     }
 
     @Override

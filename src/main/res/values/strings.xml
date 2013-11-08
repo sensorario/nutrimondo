@@ -4,5 +4,11 @@
     <string name="app_name">NutriMondo</string>
     <string name="hello_world">Diario alimentare</string>
     <string name="action_settings">Settings</string>
+    <string-array name="aliments">
+        <item>Lenticchie</item>
+        <item>Cocomero</item>
+        <item>Cipolla</item>
+        <item>Zucchine</item>
+    </string-array>
 
 </resources>
