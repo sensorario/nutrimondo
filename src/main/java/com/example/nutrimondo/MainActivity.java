@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
         interfaceBuilder.addTextView("Orario del pasto:");
         interfaceBuilder.addTimePicker();
         interfaceBuilder.addTextView("Alimento:");
-        interfaceBuilder.addSpinner(adapter);
+        interfaceBuilder.addMultiSpinner(adapter);
     }
 
     private ArrayAdapter<CharSequence> getAliments() {
