@@ -23,6 +23,7 @@ public class InterfaceBuilder {
     int lineHeightTimePicker = 220;
 
     int multiSpinnerCount = 1;
+    ArrayAdapter<CharSequence> _multiSpinnerAdapter;
 
     private int getNewMultiSpinnerId() {
         multiSpinnerCount++;
@@ -64,6 +65,8 @@ public class InterfaceBuilder {
     }
 
     private void addMultiSpinnerSpinner(int id, ArrayAdapter<CharSequence> adapter) {
+        _multiSpinnerAdapter = adapter;
+
         FrameLayout.LayoutParams layoutParams;
         layoutParams = new FrameLayout.LayoutParams(
                 width,
@@ -96,14 +99,17 @@ public class InterfaceBuilder {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                top -= lineHeightSpinner;
+                addMultiSpinnerSpinner(getNewMultiSpinnerId(), _multiSpinnerAdapter);
                 FrameLayout.LayoutParams layoutParams;
                 layoutParams = new FrameLayout.LayoutParams(
                         button.getWidth(),
                         button.getHeight()
                 );
                 layoutParams.leftMargin = leftMargin;
-                layoutParams.topMargin = button.getTop() + 40;
+                layoutParams.topMargin = button.getTop() + lineHeightSpinner;
                 button.setLayoutParams(layoutParams);
+                top += lineHeightSpinner;
             }
         });
 
