@@ -1,7 +1,9 @@
 package com.example.nutrimondo;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,6 +25,19 @@ public class MainActivity extends Activity {
                     .add(R.id.activity_main, new PlaceholderFragment())
                     .commit();
         }
+
+        DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        };
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setTitle("Application created")
+                .setIcon(R.drawable.ic_launcher)
+                .setPositiveButton("Ok", onClickListener);
+
+        alert.show();
 
         buildInterface();
     }
