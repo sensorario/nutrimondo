@@ -13,6 +13,20 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends Activity {
 
     @Override
@@ -29,6 +43,36 @@ public class MainActivity extends Activity {
         DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                HttpClient httpclient;
+                HttpPost httppost;
+                List<NameValuePair> nameValuePairs;
+
+                httpclient = new DefaultHttpClient();
+                httppost = new HttpPost("http://www.yiinotes.com/nutrimondo/web/meals");
+                nameValuePairs = new ArrayList<NameValuePair>(2);
+
+                nameValuePairs.add(new BasicNameValuePair("parametro", "valore"));
+
+                try {
+                    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                HttpResponse response;
+                response = null;
+
+                try {
+                    response = httpclient.execute(httppost);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    InputStream inputStream = response.getEntity().getContent();
+                } catch (IOException e) {
+
+                }
             }
         };
 
@@ -36,7 +80,6 @@ public class MainActivity extends Activity {
                 .setTitle("Application created")
                 .setIcon(R.drawable.ic_launcher)
                 .setPositiveButton("Ok", onClickListener);
-
         alert.show();
 
         buildInterface();
@@ -50,6 +93,24 @@ public class MainActivity extends Activity {
         interfaceBuilder.addTimePicker();
         interfaceBuilder.addTextView("Alimento:");
         interfaceBuilder.addMultiSpinner(adapter);
+        interfaceBuilder.addSubmitButton(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                postData();
+            }
+        });
+    }
+
+    public void postData() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Send Post Request");
+        alert.setIcon(R.drawable.ic_launcher);
+        AlertDialog.Builder ok = alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        alert.show();
     }
 
     private ArrayAdapter<CharSequence> getAliments() {

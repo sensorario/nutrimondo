@@ -1,7 +1,6 @@
 package com.example.nutrimondo;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -14,7 +13,7 @@ public class InterfaceBuilder {
     MainActivity _mainActivity;
     FrameLayout _frameLayout;
 
-    int width = 420;
+    int width = 440;
     int leftMargin = 20;
     int top = 0;
     int lineHeightTextView = 40;
@@ -100,7 +99,15 @@ public class InterfaceBuilder {
             @Override
             public void onClick(View v) {
                 top -= lineHeightSpinner;
+                top -= lineHeightSpinner;
                 addMultiSpinnerSpinner(getNewMultiSpinnerId(), _multiSpinnerAdapter);
+                moveMultiSpinnerButton();
+                top += lineHeightSpinner;
+                top += lineHeightSpinner;
+            }
+
+            private void moveMultiSpinnerButton() {
+                //
                 FrameLayout.LayoutParams layoutParams;
                 layoutParams = new FrameLayout.LayoutParams(
                         button.getWidth(),
@@ -109,9 +116,36 @@ public class InterfaceBuilder {
                 layoutParams.leftMargin = leftMargin;
                 layoutParams.topMargin = button.getTop() + lineHeightSpinner;
                 button.setLayoutParams(layoutParams);
-                top += lineHeightSpinner;
+                //
+                FrameLayout.LayoutParams layoutParamsSubmit;
+                layoutParamsSubmit = new FrameLayout.LayoutParams(
+                        _mainActivity.findViewById(666).getWidth(),
+                        _mainActivity.findViewById(666).getHeight()
+                );
+                layoutParamsSubmit.leftMargin = leftMargin;
+                layoutParamsSubmit.topMargin = _mainActivity.findViewById(666).getTop() + lineHeightSpinner;
+                _mainActivity.findViewById(666).setLayoutParams(layoutParamsSubmit);
             }
         });
+
+        _frameLayout.addView(button);
+    }
+
+    public void addSubmitButton(View.OnClickListener clickListener) {
+        FrameLayout.LayoutParams layoutParams;
+        layoutParams = new FrameLayout.LayoutParams(
+                width,
+                lineHeightButton
+        );
+        layoutParams.leftMargin = leftMargin;
+        layoutParams.topMargin = getNewTop(lineHeightButton);
+
+        final Button button = new Button(_mainActivity);
+        button.setText("Salva");
+        button.setId(666);
+        button.setLayoutParams(layoutParams);
+
+        button.setOnClickListener(clickListener);
 
         _frameLayout.addView(button);
     }
