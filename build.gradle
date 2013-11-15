@@ -1,0 +1,19 @@
+String projectName = 'Nutrimondo'
+
+task presentation << {
+    print 'Nome del progetto: '
+}
+
+task hello(dependsOn: presentation) << {
+	println projectName
+}
+
+task upper << {
+    println projectName.toUpperCase()
+}
+
+task count << {
+    4.times {
+        print "$it"
+    }
+}
