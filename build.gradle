@@ -1,19 +1,25 @@
-String projectName = 'Nutrimondo'
-
-task presentation << {
-    print 'Nome del progetto: '
-}
-
-task hello(dependsOn: presentation) << {
-	println projectName
-}
-
-task upper << {
-    println projectName.toUpperCase()
-}
-
-task count << {
-    4.times {
-        print "$it"
-    }
-}
+//String projectName = 'Nutrimondo'
+//
+//task presentation << {
+//    print 'Nome del progetto: '
+//}
+//
+//task hello(dependsOn: presentation) << {
+//    println projectName
+//}
+//
+//task upper << {
+//    println projectName.toUpperCase()
+//}
+//
+//task count << {
+//    4.times {
+//        print "$it"
+//    }
+//}
+//
+//4.times { counter ->
+//    task "task$counter" << {
+//        println "I am the task number $counter"
+//    }
+//}
