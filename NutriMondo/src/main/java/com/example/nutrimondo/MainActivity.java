@@ -2,9 +2,11 @@ package com.example.nutrimondo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,17 +42,35 @@ public class MainActivity extends Activity {
                     .commit();
         }
 
-        DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() {
+        DialogInterface.OnClickListener onClickThenAddOnion;
+        onClickThenAddOnion = onClickThenAddOnion();
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setTitle("Application created")
+                .setIcon(R.drawable.ic_launcher)
+                .setPositiveButton("Ok", onClickThenAddOnion);
+        alert.show();
+
+        buildInterface();
+    }
+
+    private DialogInterface.OnClickListener onClickThenAddOnion() {
+        return new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 HttpClient httpclient;
                 HttpPost httppost;
                 List<NameValuePair> nameValuePairs;
 
-                httpclient = new DefaultHttpClient();
-                httppost = new HttpPost("http://www.yiinotes.com/nutrimondo/web/meals");
-                nameValuePairs = new ArrayList<NameValuePair>(2);
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy
+                        .Builder()
+                        .permitAll()
+                        .build();
+                StrictMode.setThreadPolicy(policy);
 
+                httpclient = new DefaultHttpClient();
+                httppost = new HttpPost("http://www.yiinotes.com/nutrimondo/web/aggiungi-cipolla");
+                nameValuePairs = new ArrayList<NameValuePair>(2);
                 nameValuePairs.add(new BasicNameValuePair("parametro", "valore"));
 
                 try {
@@ -73,16 +93,10 @@ public class MainActivity extends Activity {
                 } catch (IOException e) {
 
                 }
+
+                alertMessage("Aggiunta Cipolla");
             }
         };
-
-        AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                .setTitle("Application created")
-                .setIcon(R.drawable.ic_launcher)
-                .setPositiveButton("Ok", onClickListener);
-        alert.show();
-
-        buildInterface();
     }
 
     private void buildInterface() {
@@ -102,14 +116,29 @@ public class MainActivity extends Activity {
     }
 
     public void postData() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Send Post Request");
-        alert.setIcon(R.drawable.ic_launcher);
-        AlertDialog.Builder ok = alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        String title = "Send Post Request";
+        DialogInterface.OnClickListener onClickListener;
+        onClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }
-        });
+        };
+        alertMessage(title, onClickListener);
+    }
+
+    private void alertMessage(String title, DialogInterface.OnClickListener doNothing) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(title);
+        alert.setIcon(R.drawable.ic_launcher);
+        AlertDialog.Builder ok = alert.setPositiveButton("Ok", doNothing);
+        alert.show();
+    }
+
+    private void alertMessage(String title) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(title);
+        alert.setIcon(R.drawable.ic_launcher);
+        AlertDialog.Builder ok = alert.setPositiveButton("Ok", null);
         alert.show();
     }
 
