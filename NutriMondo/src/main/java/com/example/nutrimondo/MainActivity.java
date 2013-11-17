@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends Activity {
@@ -46,7 +47,7 @@ public class MainActivity extends Activity {
         onClickThenAddOnion = onClickThenAddOnion();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                .setTitle("Application created")
+                .setTitle(new Date().toString())
                 .setIcon(R.drawable.ic_launcher)
                 .setPositiveButton("Ok", onClickThenAddOnion);
         alert.show();
