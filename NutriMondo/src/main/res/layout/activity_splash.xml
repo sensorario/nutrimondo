@@ -7,10 +7,29 @@
     tools:ignore="MergeRootFrame"
     android:padding="40dp">
 
-    <Button
-        android:layout_height="fill_parent"
+    <TextView
+        android:layout_height="60dp"
         android:layout_width="fill_parent"
-        android:text="Registra pastonuovo pasto"
-        android:onClick="openMainActivity"/>
+        android:text="Per registrare un nuovo pasto, clicca nel bottone REGISTRA."/>
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:layout_height="60dp"
+        android:layout_width="fill_parent"
+        android:text="REGISTRA"
+        android:onClick="openMainActivity" />
+
+    <TextView
+        android:layout_marginTop="180dp"
+        android:layout_height="30dp"
+        android:layout_width="fill_parent"
+        android:text="Oppure puoi visualizzare los torico dei tuoi pasti cliccando su Storia"/>
+
+    <Button
+        android:layout_marginTop="210dp"
+        android:layout_height="60dp"
+        android:layout_width="fill_parent"
+        android:text="STORIA"
+        android:onClick="openHistory" />
 
 </FrameLayout>
