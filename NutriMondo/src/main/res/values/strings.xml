@@ -5,9 +5,36 @@
     <string name="hello_world">Diario alimentare</string>
     <string name="action_settings">Settings</string>
     <string-array name="aliments">
-        <item>Lenticchie</item>
+        <item>Banana</item>
         <item>Cocomero</item>
         <item>Cipolla</item>
+        <item>Fagioli</item>
+        <item>Insalata</item>
+        <item>Lenticchie</item>
+        <item>Mela</item>
+        <item>Melanzana</item>
+        <item>Nasello</item>
+        <item>Noci</item>
+        <item>Orata</item>
+        <item>Orzo Perlato</item>
+        <item>Pane ai 5 Cereali</item>
+        <item>Pane Integrale</item>
+        <item>Pane di segale</item>
+        <item>Pasta</item>
+        <item>Pasta Integrale</item>
+        <item>Piadina di segale</item>
+        <item>Pizza Prosciutto e Funghi</item>
+        <item>Pizza Margherita</item>
+        <item>Prosciutto Crudo</item>
+        <item>Prugne</item>
+        <item>Soia Gialla</item>
+        <item>Sottiletta Light</item>
+        <item>Tonno</item>
+        <item>Yogurt Bianco Magro</item>
+        <item>Yogurt Bianco Intero</item>
+        <item>Yogurt ai Cereali</item>
+        <item>Uovo sodo</item>
+        <item>Uovo in camicia</item>
         <item>Zucchine</item>
     </string-array>
 
