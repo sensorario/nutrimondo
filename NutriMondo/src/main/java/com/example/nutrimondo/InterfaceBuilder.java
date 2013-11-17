@@ -1,5 +1,6 @@
 package com.example.nutrimondo;
 
+import android.app.AlertDialog;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,11 +22,15 @@ public class InterfaceBuilder {
     int lineHeightSpinner = 80;
     int lineHeightTimePicker = 220;
 
-    int multiSpinnerCount = 1;
+    int multiSpinnerCount = 0;
     ArrayAdapter<CharSequence> _multiSpinnerAdapter;
 
-    private int getNewMultiSpinnerId() {
+    private int getNewFieldId() {
         multiSpinnerCount++;
+        return multiSpinnerCount;
+    }
+
+    public int getFormItems() {
         return multiSpinnerCount;
     }
 
@@ -59,7 +64,7 @@ public class InterfaceBuilder {
     }
 
     public void addMultiSpinner(ArrayAdapter<CharSequence> adapter) {
-        addMultiSpinnerSpinner(getNewMultiSpinnerId(), adapter);
+        addMultiSpinnerSpinner(getNewFieldId(), adapter);
         addMultiSpinnerButton("+");
     }
 
@@ -73,6 +78,12 @@ public class InterfaceBuilder {
         );
         layoutParams.leftMargin = leftMargin;
         layoutParams.topMargin = getNewTop(lineHeightSpinner);
+
+//        AlertDialog.Builder alert = new AlertDialog.Builder(_mainActivity);
+//        alert.setTitle("ID : " + id);
+//        alert.setIcon(R.drawable.ic_launcher);
+//        AlertDialog.Builder ok = alert.setPositiveButton("Ok", null);
+//        alert.show();
 
         Spinner spinner = new Spinner(_mainActivity);
         spinner.setId(id);
@@ -100,7 +111,7 @@ public class InterfaceBuilder {
             public void onClick(View v) {
                 top -= lineHeightSpinner;
                 top -= lineHeightSpinner;
-                addMultiSpinnerSpinner(getNewMultiSpinnerId(), _multiSpinnerAdapter);
+                addMultiSpinnerSpinner(getNewFieldId(), _multiSpinnerAdapter);
                 moveMultiSpinnerButton();
                 top += lineHeightSpinner;
                 top += lineHeightSpinner;
@@ -159,10 +170,11 @@ public class InterfaceBuilder {
         layoutParams.leftMargin = leftMargin;
         layoutParams.topMargin = getNewTop(lineHeightTimePicker);
 
-        TimePicker textView = new TimePicker(_mainActivity);
-        textView.setLayoutParams(layoutParams);
+        TimePicker timePicker = new TimePicker(_mainActivity);
+        timePicker.setId(getNewFieldId());
+        timePicker.setLayoutParams(layoutParams);
 
-        _frameLayout.addView(textView);
+        _frameLayout.addView(timePicker);
     }
 
     private int getNewTop(int elementHeight) {
