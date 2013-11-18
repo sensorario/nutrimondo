@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">NutriMondo</string>
+    <string name="app_name">NutriMondo v1.0</string>
     <string name="hello_world">Diario alimentare</string>
     <string name="action_settings">Settings</string>
     <string-array name="aliments">
+        <item>Anacardi</item>
+        <item>Arachidi</item>
         <item>Banana</item>
-        <item>Cocomero</item>
+        <item>Biscotti Secchi</item>
+        <item>Caffè</item>
+        <item>Caffè d\'Orzo</item>
+        <item>Cappuccino</item>
+        <item>Cappuccino alla Soia</item>
+        <item>Cavolo</item>
         <item>Cipolla</item>
+        <item>Cocomero</item>
+        <item>Crackers</item>
+        <item>Crackers Integrali</item>
         <item>Fagioli</item>
+        <item>Formaggio Spalmabile</item>
+        <item>Kamut Soffiato</item>
         <item>Insalata</item>
+        <item>Latte di Soia</item>
         <item>Lenticchie</item>
         <item>Mela</item>
         <item>Melanzana</item>
@@ -22,17 +35,24 @@
         <item>Pane di segale</item>
         <item>Pasta</item>
         <item>Pasta Integrale</item>
+        <item>Patate</item>
+        <item>Pavesini</item>
         <item>Piadina di segale</item>
+        <item>Piselli</item>
         <item>Pizza Prosciutto e Funghi</item>
         <item>Pizza Margherita</item>
+        <item>Pollo - Petto</item>
         <item>Prosciutto Crudo</item>
         <item>Prugne</item>
+        <item>Radicchio</item>
         <item>Soia Gialla</item>
         <item>Sottiletta Light</item>
+        <item>Tisana</item>
         <item>Tonno</item>
         <item>Yogurt Bianco Magro</item>
         <item>Yogurt Bianco Intero</item>
         <item>Yogurt ai Cereali</item>
+        <item>Yogurt alla Soia</item>
         <item>Uovo sodo</item>
         <item>Uovo in camicia</item>
         <item>Zucchine</item>
