@@ -1,35 +1,43 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_splash"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     tools:context=".SplashActivity"
-    tools:ignore="MergeRootFrame"
-    android:padding="40dp">
+    tools:ignore="MergeRootFrame">
 
-    <TextView
-        android:layout_height="60dp"
-        android:layout_width="fill_parent"
-        android:text="Per registrare un nuovo pasto, clicca nel bottone REGISTRA."/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:layout_marginTop="30dp"
-        android:layout_height="60dp"
-        android:layout_width="fill_parent"
-        android:text="REGISTRA"
-        android:onClick="openMainActivity" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grazie per aver scelto Nutromondo"
+            android:padding="40dp" />
 
-    <TextView
-        android:layout_marginTop="180dp"
-        android:layout_height="30dp"
-        android:layout_width="fill_parent"
-        android:text="Oppure puoi visualizzare los torico dei tuoi pasti cliccando su Storia"/>
+    </LinearLayout>
 
-    <Button
-        android:layout_marginTop="210dp"
-        android:layout_height="60dp"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:text="STORIA"
-        android:onClick="openHistory" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Oggi"
+            android:onClick="openHistory"
+            android:layout_gravity="bottom" />
+
+        <Button
+            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="Registra"
+            android:onClick="openMainActivity"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
 
 </FrameLayout>
