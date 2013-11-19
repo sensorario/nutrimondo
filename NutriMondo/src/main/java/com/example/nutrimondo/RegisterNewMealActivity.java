@@ -28,7 +28,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class RegisterNewMealActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
         buildInterface();
     }
 
-    private MainActivity getContext () {
+    private RegisterNewMealActivity getContext () {
         return this;
     }
 

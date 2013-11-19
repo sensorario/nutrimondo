@@ -1,6 +1,5 @@
 package com.example.nutrimondo;
 
-import android.app.AlertDialog;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,7 +10,7 @@ import android.widget.TimePicker;
 
 public class InterfaceBuilder {
 
-    MainActivity _mainActivity;
+    RegisterNewMealActivity _registerNewMealActivity;
     FrameLayout _frameLayout;
 
     int width = 440;
@@ -35,10 +34,10 @@ public class InterfaceBuilder {
     }
 
     InterfaceBuilder(
-            MainActivity mainActivity,
+            RegisterNewMealActivity registerNewMealActivity,
             FrameLayout frameLayout
     ) {
-        _mainActivity = mainActivity;
+        _registerNewMealActivity = registerNewMealActivity;
         _frameLayout = frameLayout;
     }
 
@@ -56,7 +55,7 @@ public class InterfaceBuilder {
                 lineHeightTextView
         );
 
-        TextView textView = new TextView(_mainActivity);
+        TextView textView = new TextView(_registerNewMealActivity);
         textView.setText(text);
         textView.setLayoutParams(layoutParams);
 
@@ -79,13 +78,13 @@ public class InterfaceBuilder {
         layoutParams.leftMargin = leftMargin;
         layoutParams.topMargin = getNewTop(lineHeightSpinner);
 
-//        AlertDialog.Builder alert = new AlertDialog.Builder(_mainActivity);
+//        AlertDialog.Builder alert = new AlertDialog.Builder(_registerNewMealActivity);
 //        alert.setTitle("ID : " + id);
 //        alert.setIcon(R.drawable.ic_launcher);
 //        AlertDialog.Builder ok = alert.setPositiveButton("Ok", null);
 //        alert.show();
 
-        Spinner spinner = new Spinner(_mainActivity);
+        Spinner spinner = new Spinner(_registerNewMealActivity);
         spinner.setId(id);
         spinner.setAdapter(adapter);
         spinner.setLayoutParams(layoutParams);
@@ -102,7 +101,7 @@ public class InterfaceBuilder {
         layoutParams.leftMargin = leftMargin;
         layoutParams.topMargin = getNewTop(lineHeightButton);
 
-        final Button button = new Button(_mainActivity);
+        final Button button = new Button(_registerNewMealActivity);
         button.setText(text);
         button.setLayoutParams(layoutParams);
 
@@ -130,12 +129,12 @@ public class InterfaceBuilder {
                 //
                 FrameLayout.LayoutParams layoutParamsSubmit;
                 layoutParamsSubmit = new FrameLayout.LayoutParams(
-                        _mainActivity.findViewById(666).getWidth(),
-                        _mainActivity.findViewById(666).getHeight()
+                        _registerNewMealActivity.findViewById(666).getWidth(),
+                        _registerNewMealActivity.findViewById(666).getHeight()
                 );
                 layoutParamsSubmit.leftMargin = leftMargin;
-                layoutParamsSubmit.topMargin = _mainActivity.findViewById(666).getTop() + lineHeightSpinner;
-                _mainActivity.findViewById(666).setLayoutParams(layoutParamsSubmit);
+                layoutParamsSubmit.topMargin = _registerNewMealActivity.findViewById(666).getTop() + lineHeightSpinner;
+                _registerNewMealActivity.findViewById(666).setLayoutParams(layoutParamsSubmit);
             }
         });
 
@@ -151,7 +150,7 @@ public class InterfaceBuilder {
         layoutParams.leftMargin = leftMargin;
         layoutParams.topMargin = getNewTop(lineHeightButton);
 
-        final Button button = new Button(_mainActivity);
+        final Button button = new Button(_registerNewMealActivity);
         button.setText("Salva");
         button.setId(666);
         button.setLayoutParams(layoutParams);
@@ -170,7 +169,7 @@ public class InterfaceBuilder {
         layoutParams.leftMargin = leftMargin;
         layoutParams.topMargin = getNewTop(lineHeightTimePicker);
 
-        TimePicker timePicker = new TimePicker(_mainActivity);
+        TimePicker timePicker = new TimePicker(_registerNewMealActivity);
         timePicker.setId(getNewFieldId());
         timePicker.setLayoutParams(layoutParams);
 
