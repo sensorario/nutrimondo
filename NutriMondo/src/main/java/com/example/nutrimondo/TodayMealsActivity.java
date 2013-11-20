@@ -11,7 +11,7 @@ public class TodayMealsActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_today);
 
         WebView webView = (WebView) findViewById(R.id.web_view);
         webView.loadUrl("http://www.yiinotes.com/nutrimondo/web/meals/today");
