@@ -52,8 +52,6 @@ public class RegisterNewMealActivity extends Activity {
         ArrayAdapter<CharSequence> adapter = getAliments();
 
         final InterfaceBuilder interfaceBuilder = getBuilder();
-        interfaceBuilder.addTextView("Orario del pasto:");
-        interfaceBuilder.addTimePicker();
         interfaceBuilder.addTextView("Alimento:");
         interfaceBuilder.addMultiSpinner(adapter);
         interfaceBuilder.addSubmitButton(new View.OnClickListener() {
