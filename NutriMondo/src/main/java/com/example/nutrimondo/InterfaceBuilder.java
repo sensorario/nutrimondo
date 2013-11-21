@@ -6,32 +6,18 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 public class InterfaceBuilder {
 
-    RegisterNewMealActivity _registerNewMealActivity;
-    FrameLayout _frameLayout;
+    private int textViewHeight;
+    private int buttonHeight;
+    private int leftMargin;
+    private int numMultiSpinner;
+    private int top;
 
-    int width = 440;
-    int leftMargin = 20;
-    int top = 0;
-    int lineHeightTextView = 40;
-    int lineHeightButton = 80;
-    int lineHeightSpinner = 80;
-    int lineHeightTimePicker = 220;
-
-    int multiSpinnerCount = 0;
-    ArrayAdapter<CharSequence> _multiSpinnerAdapter;
-
-    private int getNewFieldId() {
-        multiSpinnerCount++;
-        return multiSpinnerCount;
-    }
-
-    public int getFormItems() {
-        return multiSpinnerCount;
-    }
+    private ArrayAdapter<CharSequence> _adapter;
+    private FrameLayout _frameLayout;
+    private RegisterNewMealActivity _registerNewMealActivity;
 
     InterfaceBuilder(
             RegisterNewMealActivity registerNewMealActivity,
@@ -39,52 +25,62 @@ public class InterfaceBuilder {
     ) {
         _registerNewMealActivity = registerNewMealActivity;
         _frameLayout = frameLayout;
+        textViewHeight = 40;
+        buttonHeight = 80;
+        leftMargin = 20;
+        numMultiSpinner = 0;
+        top = 0;
+    }
+
+    private int getNewFieldId() {
+        numMultiSpinner++;
+        return numMultiSpinner;
+    }
+
+    public int getFormItems() {
+        return numMultiSpinner;
     }
 
     public void addTextView(
             String text
     ) {
+        final int width = 440;
+        final int height = textViewHeight;
+        final int top = getNewTop(height);
+
         FrameLayout.LayoutParams layoutParams;
+        layoutParams = getLayoutParams(width, height, top);
 
-        layoutParams = new FrameLayout.LayoutParams(
-                width,
-                lineHeightTextView
-        );
-        layoutParams.leftMargin = leftMargin;
-        layoutParams.topMargin = getNewTop(
-                lineHeightTextView
-        );
-
-        TextView textView = new TextView(_registerNewMealActivity);
+        TextView textView;
+        textView = new TextView(_registerNewMealActivity);
         textView.setText(text);
         textView.setLayoutParams(layoutParams);
 
         _frameLayout.addView(textView);
     }
 
-    public void addMultiSpinner(ArrayAdapter<CharSequence> adapter) {
+    public void addMultiSpinner(
+            ArrayAdapter<CharSequence> adapter
+    ) {
         addMultiSpinnerSpinner(getNewFieldId(), adapter);
         addMultiSpinnerButton("+");
     }
 
-    private void addMultiSpinnerSpinner(int id, ArrayAdapter<CharSequence> adapter) {
-        _multiSpinnerAdapter = adapter;
+    private void addMultiSpinnerSpinner(
+            int id,
+            ArrayAdapter<CharSequence> adapter
+    ) {
+        _adapter = adapter;
+
+        final int width = 440;
+        final int height = buttonHeight;
+        final int top = getNewTop(height);
 
         FrameLayout.LayoutParams layoutParams;
-        layoutParams = new FrameLayout.LayoutParams(
-                width,
-                lineHeightSpinner
-        );
-        layoutParams.leftMargin = leftMargin;
-        layoutParams.topMargin = getNewTop(lineHeightSpinner);
+        layoutParams = getLayoutParams(width, height, top);
 
-//        AlertDialog.Builder alert = new AlertDialog.Builder(_registerNewMealActivity);
-//        alert.setTitle("ID : " + id);
-//        alert.setIcon(R.drawable.ic_launcher);
-//        AlertDialog.Builder ok = alert.setPositiveButton("Ok", null);
-//        alert.show();
-
-        Spinner spinner = new Spinner(_registerNewMealActivity);
+        Spinner spinner;
+        spinner = new Spinner(_registerNewMealActivity);
         spinner.setId(id);
         spinner.setAdapter(adapter);
         spinner.setLayoutParams(layoutParams);
@@ -92,14 +88,16 @@ public class InterfaceBuilder {
         _frameLayout.addView(spinner);
     }
 
-    private void addMultiSpinnerButton(String text) {
+    private void addMultiSpinnerButton(
+            String text
+    ) {
+
+        final int width = 440;
+        final int height = buttonHeight;
+        final int top = getNewTop(height);
+
         FrameLayout.LayoutParams layoutParams;
-        layoutParams = new FrameLayout.LayoutParams(
-                width,
-                lineHeightButton
-        );
-        layoutParams.leftMargin = leftMargin;
-        layoutParams.topMargin = getNewTop(lineHeightButton);
+        layoutParams = getLayoutParams(width, height, top);
 
         final Button button = new Button(_registerNewMealActivity);
         button.setText(text);
@@ -108,47 +106,55 @@ public class InterfaceBuilder {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                top -= lineHeightSpinner;
-                top -= lineHeightSpinner;
-                addMultiSpinnerSpinner(getNewFieldId(), _multiSpinnerAdapter);
+                InterfaceBuilder.this.top -= buttonHeight;
+                InterfaceBuilder.this.top -= buttonHeight;
+                addMultiSpinnerSpinner(getNewFieldId(), _adapter);
                 moveMultiSpinnerButton();
-                top += lineHeightSpinner;
-                top += lineHeightSpinner;
+                InterfaceBuilder.this.top += buttonHeight;
+                InterfaceBuilder.this.top += buttonHeight;
             }
 
             private void moveMultiSpinnerButton() {
-                //
+
+                final int width = button.getWidth();
+                final int height = button.getHeight();
+                final int top = button.getTop() + height;
+
                 FrameLayout.LayoutParams layoutParams;
-                layoutParams = new FrameLayout.LayoutParams(
-                        button.getWidth(),
-                        button.getHeight()
-                );
-                layoutParams.leftMargin = leftMargin;
-                layoutParams.topMargin = button.getTop() + lineHeightSpinner;
+                layoutParams = getLayoutParams(width, height, top);
+
                 button.setLayoutParams(layoutParams);
-                //
+
+                final View registerNewMealActivity = _registerNewMealActivity.findViewById(666);
+
+                final int widthSubmit = registerNewMealActivity.getWidth();
+                final int heightSubmit = registerNewMealActivity.getHeight();
+                final int topSubmit = registerNewMealActivity.getTop() + buttonHeight;
+
                 FrameLayout.LayoutParams layoutParamsSubmit;
-                layoutParamsSubmit = new FrameLayout.LayoutParams(
-                        _registerNewMealActivity.findViewById(666).getWidth(),
-                        _registerNewMealActivity.findViewById(666).getHeight()
+                layoutParamsSubmit = getLayoutParams(
+                        widthSubmit,
+                        heightSubmit,
+                        topSubmit
                 );
-                layoutParamsSubmit.leftMargin = leftMargin;
-                layoutParamsSubmit.topMargin = _registerNewMealActivity.findViewById(666).getTop() + lineHeightSpinner;
-                _registerNewMealActivity.findViewById(666).setLayoutParams(layoutParamsSubmit);
+
+                registerNewMealActivity.setLayoutParams(layoutParamsSubmit);
             }
         });
 
         _frameLayout.addView(button);
     }
 
-    public void addSubmitButton(View.OnClickListener clickListener) {
+    public void addSubmitButton(
+            View.OnClickListener clickListener
+    ) {
+
+        final int width = 440;
+        final int height = buttonHeight;
+        final int top = getNewTop(height);
+
         FrameLayout.LayoutParams layoutParams;
-        layoutParams = new FrameLayout.LayoutParams(
-                width,
-                lineHeightButton
-        );
-        layoutParams.leftMargin = leftMargin;
-        layoutParams.topMargin = getNewTop(lineHeightButton);
+        layoutParams = getLayoutParams(width, height, top);
 
         final Button button = new Button(_registerNewMealActivity);
         button.setText("Salva");
@@ -160,23 +166,24 @@ public class InterfaceBuilder {
         _frameLayout.addView(button);
     }
 
-    public void addTimePicker() {
+    private FrameLayout.LayoutParams getLayoutParams(
+            int width,
+            int height,
+            int top
+    ) {
         FrameLayout.LayoutParams layoutParams;
         layoutParams = new FrameLayout.LayoutParams(
                 width,
-                lineHeightTimePicker
+                height
         );
         layoutParams.leftMargin = leftMargin;
-        layoutParams.topMargin = getNewTop(lineHeightTimePicker);
-
-        TimePicker timePicker = new TimePicker(_registerNewMealActivity);
-        timePicker.setId(getNewFieldId());
-        timePicker.setLayoutParams(layoutParams);
-
-        _frameLayout.addView(timePicker);
+        layoutParams.topMargin = top;
+        return layoutParams;
     }
 
-    private int getNewTop(int elementHeight) {
+    private int getNewTop(
+            int elementHeight
+    ) {
         int returnTop = top + 20;
         top = top + elementHeight;
         return returnTop;
