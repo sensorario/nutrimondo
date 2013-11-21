@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
@@ -31,7 +32,9 @@ import java.util.List;
 public class RegisterNewMealActivity extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(
+            Bundle savedInstanceState
+    ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -44,7 +47,7 @@ public class RegisterNewMealActivity extends Activity {
         buildInterface();
     }
 
-    private RegisterNewMealActivity getContext () {
+    private RegisterNewMealActivity getContext() {
         return this;
     }
 
@@ -86,6 +89,10 @@ public class RegisterNewMealActivity extends Activity {
                     e.printStackTrace();
                 }
 
+                showSavedMealDialog();
+            }
+
+            private void showSavedMealDialog() {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
                 alert.setTitle("Pasto salvato!");
                 alert.setIcon(R.drawable.ic_launcher);
@@ -93,6 +100,9 @@ public class RegisterNewMealActivity extends Activity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
+
+                        Intent intent = new Intent(getContext(), TodayMealsActivity.class);
+                        startActivity(intent);
                     }
                 });
                 alert.show();

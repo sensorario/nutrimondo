@@ -20,12 +20,12 @@ public class SplashActivity extends Activity {
         startActivity(intent);
     }
 
-    public void openHistory(View view) {
+    public void openTodayHistoryActivity(View view) {
         Intent intent = new Intent(this, TodayMealsActivity.class);
         startActivity(intent);
     }
 
-    public void openWeek(View view) {
+    public void openWeekHistoryActivity(View view) {
         Intent intent = new Intent(this, WeekMealActivity.class);
         startActivity(intent);
     }

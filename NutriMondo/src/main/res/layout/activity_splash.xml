@@ -16,7 +16,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Statistiche settimanali"
-            android:onClick="openWeek"
+            android:onClick="openWeekHistoryActivity"
             android:height="100dp" />
 
     </LinearLayout>
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:text="Oggi"
-            android:onClick="openHistory"
+            android:onClick="openTodayHistoryActivity"
             android:layout_gravity="bottom" />
 
         <Button
