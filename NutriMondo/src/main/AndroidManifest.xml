@@ -29,6 +29,9 @@
         <activity
             android:name=".TodayMealsActivity"
             android:label="@string/app_name" />
+        <activity
+            android:name=".WeekMealActivity"
+            android:label="WeekMealActivity" />
     </application>
 
 </manifest>

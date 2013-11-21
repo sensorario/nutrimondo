@@ -25,4 +25,9 @@ public class SplashActivity extends Activity {
         startActivity(intent);
     }
 
+    public void openWeek(View view) {
+        Intent intent = new Intent(this, WeekMealActivity.class);
+        startActivity(intent);
+    }
+
 }

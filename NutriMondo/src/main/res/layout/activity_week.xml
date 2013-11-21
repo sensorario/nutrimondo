@@ -1,0 +1,21 @@
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_week"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".WeekMealActivity"
+        tools:ignore="MergeRootFrame">
+
+        <WebView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/web_week_view"></WebView>
+
+    </FrameLayout>
+
+</ScrollView>

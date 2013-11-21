@@ -68,10 +68,13 @@ public class RegisterNewMealActivity extends Activity {
 
                 try {
                     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-                    nameValuePairs.add(new BasicNameValuePair("foods", "" + interfaceBuilder.getFormItems()));
-                    for (int i = interfaceBuilder.getFormItems(); i > 1; i--) {
+                    final int numItemsToSend = interfaceBuilder.getFormItems();
+                    nameValuePairs.add(new BasicNameValuePair("foods", "" + numItemsToSend));
+                    for (int i = numItemsToSend; i > 0; i--) {
                         Spinner item = (Spinner) findViewById(i);
-                        nameValuePairs.add(new BasicNameValuePair("food_" + i, item.getSelectedItem().toString()));
+                        final Object foodItem = item.getSelectedItem();
+                        final String foodName = foodItem.toString();
+                        nameValuePairs.add(new BasicNameValuePair("food_" + i, foodName));
                     }
                     request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                     client.execute(request);
@@ -93,8 +96,6 @@ public class RegisterNewMealActivity extends Activity {
                     }
                 });
                 alert.show();
-
-                finish();
             }
         });
     }
