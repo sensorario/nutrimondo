@@ -10,21 +10,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="top">
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Statistiche settimanali"
-            android:onClick="openWeekHistoryActivity"
-            android:height="100dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="top">
 
         <TextView
             android:layout_width="fill_parent"
@@ -39,14 +25,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom">
-
-        <Button
-            android:layout_height="100dp"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:text="Oggi"
-            android:onClick="openTodayHistoryActivity"
-            android:layout_gravity="bottom" />
 
         <Button
             android:layout_height="100dp"

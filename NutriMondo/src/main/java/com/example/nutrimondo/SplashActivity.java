@@ -3,6 +3,8 @@ package com.example.nutrimondo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 /**
@@ -30,4 +32,27 @@ public class SplashActivity extends Activity {
         startActivity(intent);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_open_week:
+                startActivity(
+                        new Intent(this, WeekMealActivity.class)
+                );
+                return true;
+            case R.id.action_open_today:
+                startActivity(
+                        new Intent(this, TodayMealsActivity.class)
+                );
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 }
