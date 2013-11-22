@@ -21,13 +21,16 @@
         <item>Crackers</item>
         <item>Crackers Integrali</item>
         <item>Fagioli</item>
+        <item>Fagioli Azuki Verdi</item>
         <item>Formaggio Spalmabile</item>
         <item>Kamut Soffiato</item>
         <item>Insalata</item>
         <item>Latte di Soia</item>
         <item>Lenticchie</item>
+        <item>Mandorle</item>
         <item>Mela</item>
         <item>Melanzana</item>
+        <item>Miele</item>
         <item>Mozzarella</item>
         <item>Nasello</item>
         <item>Noci</item>
@@ -46,8 +49,10 @@
         <item>Parmigiano Reggiano</item>
         <item>Peperone Giallo</item>
         <item>Peperone Rosso</item>
+        <item>Piadina</item>
         <item>Piadina di segale</item>
         <item>Piadina con Farina ai 7 cereali</item>
+        <item>Pinoli</item>
         <item>Piselli</item>
         <item>Pizza Prosciutto e Funghi</item>
         <item>Pizza Margherita</item>
@@ -57,6 +62,8 @@
         <item>Prosciutto Crudo</item>
         <item>Prugne</item>
         <item>Radicchio</item>
+        <item>Ricotta di Vacca</item>
+        <item>Ricotta di Capra</item>
         <item>Salsa di Pomodoro</item>
         <item>Soia Gialla</item>
         <item>Sottiletta Light</item>
@@ -65,6 +72,8 @@
         <item>Yogurt Bianco Magro</item>
         <item>Yogurt Bianco Intero</item>
         <item>Yogurt ai Cereali</item>
+        <item>Yogurt ai Frutti di Bosco</item>
+        <item>Yogurt alla Banana</item>
         <item>Yogurt alla Soia</item>
         <item>Uovo sodo</item>
         <item>Uovo in camicia</item>
