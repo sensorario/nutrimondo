@@ -27,8 +27,11 @@
         <item>Lenticchie</item>
         <item>Mela</item>
         <item>Melanzana</item>
+        <item>Mozzarella</item>
         <item>Nasello</item>
         <item>Noci</item>
+        <item>Olive nere</item>
+        <item>Olive verdi</item>
         <item>Orata</item>
         <item>Orzo Perlato</item>
         <item>Pane ai 5 Cereali</item>
@@ -40,16 +43,20 @@
         <item>Pavesini</item>
         <item>Pasta Sfoglia</item>
         <item>Parmigiano Reggiano</item>
-        <item>Peperone</item>
+        <item>Peperone Giallo</item>
+        <item>Peperone Rosso</item>
         <item>Piadina di segale</item>
+        <item>Piadina con Farina ai 7 cereali</item>
         <item>Piselli</item>
         <item>Pizza Prosciutto e Funghi</item>
         <item>Pizza Margherita</item>
         <item>Pollo - Petto</item>
+        <item>Pomodoro</item>
         <item>Porro</item>
         <item>Prosciutto Crudo</item>
         <item>Prugne</item>
         <item>Radicchio</item>
+        <item>Salsa di Pomodoro</item>
         <item>Soia Gialla</item>
         <item>Sottiletta Light</item>
         <item>Tisana</item>
