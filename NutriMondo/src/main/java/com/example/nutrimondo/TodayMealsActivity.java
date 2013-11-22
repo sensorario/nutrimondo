@@ -1,7 +1,11 @@
 package com.example.nutrimondo;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.webkit.WebView;
 
 /**
@@ -15,6 +19,19 @@ public class TodayMealsActivity extends Activity {
 
         WebView webView = (WebView) findViewById(R.id.web_view);
         webView.loadUrl("http://www.yiinotes.com/nutrimondo/web/meals/today");
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }
