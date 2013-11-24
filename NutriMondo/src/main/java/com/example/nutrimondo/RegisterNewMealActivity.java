@@ -12,7 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -83,7 +85,15 @@ public class RegisterNewMealActivity extends Activity {
                         nameValuePairs.add(new BasicNameValuePair("food_" + i, foodName));
                     }
                     request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-                    client.execute(request);
+                    HttpResponse response = client.execute(request);
+
+                    StatusLine statusLine = response.getStatusLine();
+                    int statusCode = statusLine.getStatusCode();
+                    if (201 == statusCode) {
+                        showSavedMealDialog();
+                    } else {
+                        showUnknowDialog(statusLine);
+                    }
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 } catch (ClientProtocolException e) {
@@ -91,13 +101,27 @@ public class RegisterNewMealActivity extends Activity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-                showSavedMealDialog();
             }
 
             private void showSavedMealDialog() {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
                 alert.setTitle("Pasto salvato!");
+                alert.setIcon(R.drawable.ic_launcher);
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+
+                        Intent intent = new Intent(getContext(), TodayMealsActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                alert.show();
+            }
+
+            private void showUnknowDialog(StatusLine statusLine) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                alert.setTitle("Response " + statusLine.getStatusCode() + ": " + statusLine.getReasonPhrase());
                 alert.setIcon(R.drawable.ic_launcher);
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
