@@ -1,42 +1,58 @@
 package com.example.nutrimondo;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.webkit.WebView;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
-/**
- * Created by simonegentili on 18/11/13.
- */
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 public class TodayMealsActivity extends Activity {
+
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("E dd MMMM yyyy");
+    private List<MealModel> model = null;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_today);
 
-        String[] strings;
-        strings = new String[]{
-                "Uno",
-                "Due",
-                "Tre",
-                "Quattro",
-                "Cinque",
-                "Sei",
-                "Sette",
-                "Otto"
+        BaseAdapter adapter;
+        adapter = new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return model.size();
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return model.get(position);
+            }
+
+            @Override
+            public long getItemId(int position) {
+                MealModel model = (MealModel) getItem(position);
+                return model.id;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                if(convertView == null) {
+                    convertView = getLayoutInflater()
+                            .inflate(R.layout.today_list_item, null);
+                }
+                final TextView dateTime = (TextView) convertView.findViewById(R.id.list_item_time);
+                final MealModel itemModel = (MealModel) getItem(position);
+                dateTime.setText(DATE_FORMAT.format(itemModel.datetime));
+                return convertView;
+            }
         };
-        final TodayMealsActivity context = this;
-        final int simple_list_item_1 = android.R.layout.simple_list_item_1;
-        ArrayAdapter adapter = new ArrayAdapter<String>(
-                context,
-                simple_list_item_1,
-                strings
-        );
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
