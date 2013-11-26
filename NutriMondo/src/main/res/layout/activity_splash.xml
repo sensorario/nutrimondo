@@ -16,7 +16,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Grazie per aver scelto Nutromondo"
+            android:text="@string/thanks"
             android:padding="20dp" />
 
     </LinearLayout>

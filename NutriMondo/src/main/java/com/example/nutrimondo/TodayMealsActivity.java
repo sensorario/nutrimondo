@@ -1,6 +1,7 @@
 package com.example.nutrimondo;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TodayMealsActivity extends Activity {
@@ -23,16 +25,19 @@ public class TodayMealsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_today);
 
+        final ArrayList<MealModel> mealModelArrayList;
+        mealModelArrayList = LoadTodayMeals.getAll();
+
         BaseAdapter adapter;
         adapter = new BaseAdapter() {
             @Override
             public int getCount() {
-                return 2;
+                return mealModelArrayList.size();
             }
 
             @Override
-            public Object getItem(int position) {
-                return 1;
+            public MealModel getItem(int position) {
+                return mealModelArrayList.get(position);
             }
 
             @Override
@@ -41,14 +46,15 @@ public class TodayMealsActivity extends Activity {
             }
 
             @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                if(convertView == null) {
-                    convertView = getLayoutInflater()
+            public View getView(int position, View view, ViewGroup parent) {
+                if(view == null) {
+                    view = getLayoutInflater()
                             .inflate(R.layout.today_list_item, null);
                 }
-                final TextView dateTime = (TextView) convertView.findViewById(R.id.list_item_time);
-                dateTime.setText("Titolo " + position);
-                return convertView;
+                final TextView dateTime = (TextView) view.findViewById(R.id.list_item_time);
+                dateTime.setText(mealModelArrayList.get(position).datetime);
+                dateTime.setTypeface(Typeface.DEFAULT_BOLD);
+                return view;
             }
         };
 

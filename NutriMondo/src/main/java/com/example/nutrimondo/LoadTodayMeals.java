@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * Created by simonegentili on 26/11/13.
  */
 public class LoadTodayMeals {
-    public static void getAll() {
+    public static ArrayList<MealModel> getAll() {
         StrictMode.ThreadPolicy policy;
         policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -54,10 +54,12 @@ public class LoadTodayMeals {
             for (int i = 0; i < itemCount; i++) {
                 arrayList.add(MealModel.convertFromJSONToMyClass((JSONObject) items.get(i)));
             }
+            return arrayList;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
