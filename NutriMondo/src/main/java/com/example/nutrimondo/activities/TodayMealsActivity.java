@@ -1,4 +1,4 @@
-package com.example.nutrimondo;
+package com.example.nutrimondo.activities;
 
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -6,20 +6,20 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.nutrimondo.json.LoadTodayMeals;
+import com.example.nutrimondo.R;
+import com.example.nutrimondo.models.MealModel;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
 public class TodayMealsActivity extends Activity {
 

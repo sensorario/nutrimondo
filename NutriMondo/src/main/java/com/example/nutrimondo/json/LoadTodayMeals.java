@@ -1,6 +1,8 @@
-package com.example.nutrimondo;
+package com.example.nutrimondo.json;
 
 import android.os.StrictMode;
+
+import com.example.nutrimondo.models.MealModel;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

@@ -1,4 +1,4 @@
-package com.example.nutrimondo;
+package com.example.nutrimondo.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
+
+import com.example.nutrimondo.ui.InterfaceBuilder;
+import com.example.nutrimondo.R;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;

@@ -1,4 +1,4 @@
-package com.example.nutrimondo;
+package com.example.nutrimondo.ui;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.example.nutrimondo.activities.RegisterNewMealActivity;
 
 public class InterfaceBuilder {
 
@@ -19,7 +21,7 @@ public class InterfaceBuilder {
     private FrameLayout _frameLayout;
     private RegisterNewMealActivity _registerNewMealActivity;
 
-    InterfaceBuilder(
+    public InterfaceBuilder(
             RegisterNewMealActivity registerNewMealActivity,
             FrameLayout frameLayout
     ) {

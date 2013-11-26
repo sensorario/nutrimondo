@@ -14,7 +14,7 @@
 
         <TextView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:gravity="center"
             android:text="@string/thanks"
             android:padding="20dp" />
@@ -34,5 +34,13 @@
             android:onClick="openMainActivity"
             android:layout_gravity="bottom" />
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center"
+        android:src="@drawable/nutrimondo"
+        android:layout_marginTop="-13dp" />
 
 </FrameLayout>

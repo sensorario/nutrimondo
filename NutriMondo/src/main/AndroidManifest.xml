@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,13 +24,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterNewMealActivity"
+            android:name=".activities.RegisterNewMealActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".TodayMealsActivity"
+            android:name=".activities.TodayMealsActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".WeekMealActivity"
+            android:name=".activities.WeekMealActivity"
             android:label="WeekMealActivity" />
     </application>
 

@@ -12,7 +12,7 @@
     <string name="hello_world">Diario alimentare</string>
 
     <string name="thanks">Grazie per aver scelto Nutromondo</string>
-    
+
     <string-array name="aliments">
         <item>Anacardi</item>
         <item>Arachidi</item>

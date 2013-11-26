@@ -1,4 +1,4 @@
-package com.example.nutrimondo;
+package com.example.nutrimondo.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.example.nutrimondo.R;
 
 /**
  * Created by simonegentili on 17/11/13.
