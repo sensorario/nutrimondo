@@ -52,8 +52,10 @@ public class TodayMealsActivity extends Activity {
                             .inflate(R.layout.today_list_item, null);
                 }
                 final TextView dateTime = (TextView) view.findViewById(R.id.list_item_time);
+                final TextView foods = (TextView) view.findViewById(R.id.food_list);
                 dateTime.setText(mealModelArrayList.get(position).datetime);
                 dateTime.setTypeface(Typeface.DEFAULT_BOLD);
+                foods.setText(mealModelArrayList.get(position).food);
                 return view;
             }
         };
