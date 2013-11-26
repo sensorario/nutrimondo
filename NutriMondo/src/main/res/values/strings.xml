@@ -3,11 +3,16 @@
 
     <string name="placeholder_datetime">datetime</string>
     <string name="placeholder_food">food</string>
-    <string name="app_name">NutriMondo v1.0</string>
-    <string name="hello_world">Diario alimentare</string>
+
     <string name="action_open_week">Week</string>
     <string name="action_open_today">2day</string>
+
+    <string name="app_name">NutriMondo v1.0</string>
+
+    <string name="hello_world">Diario alimentare</string>
+
     <string name="thanks">Grazie per aver scelto Nutromondo</string>
+    
     <string-array name="aliments">
         <item>Anacardi</item>
         <item>Arachidi</item>
