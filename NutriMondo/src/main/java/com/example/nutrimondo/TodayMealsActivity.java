@@ -8,18 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TodayMealsActivity extends Activity {
-
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("E dd MMMM yyyy");
-    private List<MealModel> model = null;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,15 +49,38 @@ public class TodayMealsActivity extends Activity {
 
             @Override
             public View getView(int position, View view, ViewGroup parent) {
-                if(view == null) {
+                if (view == null) {
                     view = getLayoutInflater()
                             .inflate(R.layout.today_list_item, null);
                 }
-                final TextView dateTime = (TextView) view.findViewById(R.id.list_item_time);
-                final TextView foods = (TextView) view.findViewById(R.id.food_list);
-                dateTime.setText(mealModelArrayList.get(position).datetime);
+
+                final TextView dateTime;
+                final LinearLayout foodList;
+
+                dateTime = (TextView) view.findViewById(R.id.list_item_time);
+                foodList = (LinearLayout) view.findViewById(R.id.food_list);
+
+                try {
+                    dateTime.setText(mealModelArrayList.get(position).getTime());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 dateTime.setTypeface(Typeface.DEFAULT_BOLD);
-                foods.setText(mealModelArrayList.get(position).food);
+                dateTime.setTextSize(20);
+
+                JSONArray arrayFoods = mealModelArrayList.get(position).food;
+                for (int i = 0; i < arrayFoods.length(); i++) {
+                    TextView textView = new TextView(getBaseContext());
+                    try {
+                        final String textItemFood;
+                        textItemFood = arrayFoods.get(i).toString();
+                        textView.setText(textItemFood);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    foodList.addView(textView);
+                }
+
                 return view;
             }
         };

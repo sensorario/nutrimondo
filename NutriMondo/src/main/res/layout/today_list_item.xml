@@ -2,7 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:padding="20dp">
 
@@ -12,10 +12,10 @@
         android:id="@+id/list_item_time"
         android:text="@string/placeholder_datetime" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/food_list"
-        android:text="@string/placeholder_food" />
+        android:orientation="vertical"></LinearLayout>
 
 </LinearLayout>
