@@ -27,18 +27,17 @@ public class TodayMealsActivity extends Activity {
         adapter = new BaseAdapter() {
             @Override
             public int getCount() {
-                return model.size();
+                return 2;
             }
 
             @Override
             public Object getItem(int position) {
-                return model.get(position);
+                return 1;
             }
 
             @Override
             public long getItemId(int position) {
-                MealModel model = (MealModel) getItem(position);
-                return model.id;
+                return 1;
             }
 
             @Override
@@ -48,11 +47,11 @@ public class TodayMealsActivity extends Activity {
                             .inflate(R.layout.today_list_item, null);
                 }
                 final TextView dateTime = (TextView) convertView.findViewById(R.id.list_item_time);
-                final MealModel itemModel = (MealModel) getItem(position);
-                dateTime.setText(DATE_FORMAT.format(itemModel.datetime));
+                dateTime.setText("Titolo " + position);
                 return convertView;
             }
         };
+
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
