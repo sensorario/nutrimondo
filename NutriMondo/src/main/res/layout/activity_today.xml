@@ -1,21 +1,14 @@
-<ScrollView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_history"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    tools:context=".HistoryActivity"
+    tools:ignore="MergeRootFrame">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_history"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".HistoryActivity"
-        tools:ignore="MergeRootFrame">
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/listView"></ListView>
 
-        <WebView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/web_view"></WebView>
-
-    </FrameLayout>
-
-</ScrollView>
+</FrameLayout>
